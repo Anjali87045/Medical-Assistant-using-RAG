@@ -61,6 +61,10 @@ def load_model_and_pipeline():
         torch_dtype=torch.float16 if device == "cuda" else torch.float32,
         max_length=2048,
         device_map=device, # "auto" or "cpu"
+        repetition_penalty=1.1,
+        do_sample=True,
+        temperature=0.7,
+        top_p=0.95,
     )
     
     return query_pipeline
